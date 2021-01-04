@@ -1,0 +1,13 @@
+.filter-wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  .filter-buttons,
+  .filter-options {
+    flex: 0 0 auto;
+  }
+
+  .filter-options {
+    text-align: right;
+  }
+}
