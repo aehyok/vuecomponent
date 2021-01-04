@@ -1,25 +1,19 @@
 <template>
   <div>
-    <el-form
-     :model="formData"
-     label-width="120px"
-     ref="refForm">
-      <FormView
-      :columnList="formListItem"
-      :formData="formData"
-      />
-     </el-form>
-      <el-row>
-        <el-button
-          size="large"
-          type="primary"
-          style="margin-left: 120px;height: 50px;"
-          @click="submitFormClick"
-          native-type="submit"
-        >
-          提交
-        </el-button>
-      </el-row>
+    <el-form :model="formData" label-width="120px" ref="refForm">
+      <FormView :columnList="formListItem" :formData="formData" />
+    </el-form>
+    <el-row>
+      <el-button
+        size="large"
+        type="primary"
+        style="margin-left: 120px;height: 50px;"
+        @click="submitForm"
+        native-type="submit"
+      >
+        提交
+      </el-button>
+    </el-row>
   </div>
 </template>
 <script>
@@ -29,29 +23,18 @@ export default {
   components: {
     FormView,
   },
-  created(){
-    getContentTypeList().then(res=>{
-      console.log(res.data,'res.data.form')
+  created() {
+    getContentTypeList().then(res => {
+      console.log(res.data, 'res.data.form')
     })
-    // 回调函数中实现需要的功能
-    window.addEventListener(
-      'popstate',
-      function(e) {
-        console.log('rssss', e)
-        alert('我监听到了浏览器的返回按钮事件啦')
-      },
-      false,
-    )
   },
-  methods:{
-    submitFormClick(){
+  methods: {
+    submitForm() {
       this.$refs.refForm.validate(valid => {
         if (valid) {
-          console.log(valid,'this.valid')
-        }
-        else {
-          this.$message.warning('请完善相关数据')
-          console.log(valid,'验证失败')
+          console.log(valid, 'this.valid')
+        } else {
+          console.log(valid, '验证失败')
         }
         return false
       })
@@ -62,14 +45,14 @@ export default {
       formListItem: [
         {
           name: 'name1',
-          type: 'string',
+          type: 'text',
           title: '栏目标题',
+          required: true, // 必填
         },
         {
           name: 'name',
-          type: 'string',
+          type: 'text',
           title: '栏目名称',
-          required: true,  // 必填
         },
         {
           name: 'total',
@@ -83,15 +66,48 @@ export default {
           title: '浏览数量',
         },
         {
-          name: 'createDate',
+          name: 'descript',
+          type: 'textarea',
+          title: '备注',
+          required: true,
+        },
+        {
+          name: 'content',
+          type: 'textarea',
+          title: '内容',
+        },
+        {
+          name: 'startDate',
           type: 'date',
-          title: '栏目创建日期',
+          title: '开始日期',
+          required: true,
+        },
+        {
+          name: 'endDate',
+          type: 'date',
+          title: '结束日期',
+        },
+        {
+          name: 'isValid',
+          type: 'switch',
+          title: '是否有效',
+        },
+        {
+          name: 'isExpired',
+          type: 'switch',
+          title: '是否过期',
+          required: true,
         },
         {
           name: 'type',
           type: 'radio',
           title: '栏目类型',
-          codeTable: 'categoryType',
+        },
+        {
+          name: 'requireType',
+          type: 'radio',
+          title: '图文类型',
+          required: true,
         },
         {
           name: 'range',
@@ -100,14 +116,9 @@ export default {
           required: true,
         },
         {
-          name:'dateRange',
-          type:'dateRange',
+          name: 'dateRange',
+          type: 'daterange',
           title: '日期范围',
-        },
-        {
-          name: 'content',
-          type: 'textarea',
-          title: '内容',
         },
         {
           name: 'creType',
@@ -115,25 +126,25 @@ export default {
           title: '证件类型',
         },
         {
-          name: 'creImage',
+          name: 'image',
           type: 'image',
-          title: '证件上传',
+          title: '头像',
         },
       ],
       formData: {
-        name1: '主菜单栏目',
-        name: '',
+        name: '主菜单栏目',
         total: null,
         count: null,
         createDate: 1606730360386,
         type: 1,
-        creType:'',
+        requireType: 0,
+        creType: '',
         range: [],
+        isExpired: false,
+        isValid: true,
       },
     }
   },
 }
 </script>
-<style scoped>
-
-</style>
+<style scoped></style>

@@ -1,15 +1,18 @@
 <!--日期格式类型-->
 <template>
   <div>
-    <el-form-item :label="column.title" :prop="column.name">
-        <el-date-picker
-          v-model="value"
-          align="right"
-          type="date"
-          placeholder="选择日期"
-          :picker-options="pickerOptions">
-        </el-date-picker>
-      </el-form-item>
+    <el-form-item :label="column.title" :prop="column.name" :rules="rules">
+      <el-date-picker
+        v-model="value"
+        align="right"
+        type="date"
+        placeholder="选择日期"
+        format="yyyy 年 MM 月 dd 日"
+        value-format="yyyy-MM-dd"
+        :picker-options="pickerOptions"
+      >
+      </el-date-picker>
+    </el-form-item>
   </div>
 </template>
 <script>
@@ -20,18 +23,24 @@ export default {
       default: () => {},
     },
     data: {
-      type: Number,
-      default: 0,
+      type: String,
+      default: '',
     },
   },
-  data(){
+  data() {
     return {
       pickerOptions: {
         // disabledDate(time) {
         //   return time.getTime() < Date.now()
         // },
       },
-   }
+      rules: [
+        {
+          required: this.column.required,
+          message: '请输入' + this.column.title,
+        },
+      ],
+    }
   },
   computed: {
     value: {
@@ -39,8 +48,8 @@ export default {
         return this.data
       },
       set: function(val) {
-        console.log(val,'sssssss')
-        this.$emit('update:data',val)
+        console.log('this.date', typeof val, val)
+        this.$emit('update:data', val)
       },
     },
   },

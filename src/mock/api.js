@@ -17,5 +17,5 @@ export const getPestLevelList = () => {
 }
 
 export const getTableAuditStatus=()=>{
-  return axios('/get/table/auditStatus')
-}
+    return axios('/get/table/auditStatus')
+ }

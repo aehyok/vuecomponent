@@ -1,15 +1,9 @@
 <!--number数值类型-->
 <template>
   <div>
- <el-form-item
-  :label="column.title"
-  :prop="column.name"
-  :rules="rules">
-    <el-input
-      type="number"
-      v-model="value"
-     ></el-input>
-  </el-form-item>
+    <el-form-item :label="column.title" :prop="column.name" :rules="rules">
+      <el-input type="number" v-model="value"></el-input>
+    </el-form-item>
   </div>
 </template>
 <script>
@@ -37,31 +31,25 @@ export default {
   created() {
     console.log(this.column, 'this.column')
   },
-  data(){
+  data() {
     return {
-      rules:[
+      rules: [
         {
           required: !!this.column.required,
-          message: '请输入'+this.column.title,
+          message: '请输入' + this.column.title,
         },
       ],
     }
   },
-  computed:{
-    value:{
+  computed: {
+    value: {
       get: function() {
-        console.log(this,' numberView')
+        console.log(this, ' numberView')
         return this.data
       },
       set: function(val) {
-        let temp
-        console.log(val, typeof(val), 'this.val')
-        if (val === '') {
-         val = undefined   // 如果为空设置为undefined，这样数值不会显示为0
-        } else {
-          temp = parseFloat(val)
-        }
-        this.$emit('update:data', temp)
+        console.log(val, typeof val, 'this.val')
+        this.$emit('update:data', parseFloat(val))
       },
     },
   },

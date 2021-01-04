@@ -1,10 +1,6 @@
 <!--简单文本框-->
 <template>
-  <el-form-item
-    :label="column.title"
-    :prop="column.name"
-    :rules="rules"
-  >
+  <el-form-item :label="column.title" :prop="column.name" :rules="rules">
     <el-input
       v-model="value"
       type="textarea"
@@ -17,33 +13,33 @@
 </template>
 <script>
 export default {
-  props:{
-    column:{
+  props: {
+    column: {
       type: [Object],
       default: () => {},
     },
-    data:{
+    data: {
       type: String,
       default: '',
     },
   },
-  data(){
+  data() {
     return {
-      rules:[
+      rules: [
         {
-          required: !!this.column.required,
-          message: '请输入'+this.column.title,
+          required: this.column.required,
+          message: '请输入' + this.column.title,
         },
       ],
     }
   },
-  computed:{
-    value:{
-      get:function(){
+  computed: {
+    value: {
+      get: function() {
         return this.data
       },
-      set:function(val){
-        this.$emit('update:data',val)
+      set: function(val) {
+        this.$emit('update:data', val)
       },
     },
   },

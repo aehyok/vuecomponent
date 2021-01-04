@@ -126,6 +126,33 @@ export const asyncRoutes = [
               hidden: false,
             },
           },
+          {
+            path: '/component/avueForm',
+            name: 'componentAvueForm',
+            component: () => import('@/views/componentManage/avueForm'),
+            meta: {
+              title: 'avueForm',
+              hidden: false,
+            },
+          },
+          {
+            path: '/component/avueTable',
+            name: 'componentAvueTable',
+            component: () => import('@/views/componentManage/avueTable'),
+            meta: {
+              title: 'avueTable',
+              hidden: false,
+            },
+          },
+          {
+            path: '/component/mapBox',
+            name: 'componentMapBox',
+            component: () => import('@/views/componentManage/mapBox'),
+            meta: {
+              title: 'mapBox',
+              hidden: false,
+            },
+          },
         ],
       },
 
