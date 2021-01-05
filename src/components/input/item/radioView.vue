@@ -15,20 +15,32 @@ import { getContentTypeList } from '@/mock/api'
 export default {
   props: {
     column: {
-      type: [Object],
-      default: () => {},
+      required: {
+        type: Boolean,
+        default: false,
+      },
+      title: {
+        type: String,
+        default: '',
+      },
+      name: {
+        type: String,
+        default: '',
+      },
     },
     data: {
       type: Number,
-      default: 1,
+      default: undefined,
     },
   },
   data() {
     return {
       rules: [
         {
-          required: this.column.required,
+          // 加上双？？，防止出现选中后提示请选择"this.column.title"
+          required: this.column.required ?? false,
           message: '请选择' + this.column.title,
+          trigger: 'change',
         },
       ],
       list: [],
@@ -36,6 +48,8 @@ export default {
   },
   created() {
     this.getList()
+    console.log(this.column, 'this.radioView')
+    console.log(this.column.required, 'required')
   },
   computed: {
     value: {
@@ -43,6 +57,7 @@ export default {
         return this.data
       },
       set: function(val) {
+        console.log(val, typeof val, 'this.radioView.val')
         this.$emit('update:data', val)
       },
     },
@@ -57,8 +72,7 @@ export default {
     // radio change事件去切换控制其他组件，或者其他几个组件（先考虑控制一个）
     // 要通过一个字段控制，如果是这个字段，则可以进行控制切换状态
     radioChange(e) {
-      alert(e)
-      console.log(e)
+      console.log(e, this.column, 'this.radioChange')
     },
   },
 }

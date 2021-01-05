@@ -9,8 +9,7 @@
           size="large"
           @submit.native.prevent
         >
-          <el-form-item prop="account"
-          :rules="ruless">
+          <el-form-item prop="account" :rules="ruless">
             <el-input
               type="text"
               placeholder="用户名"
@@ -48,8 +47,13 @@
               </div>
             </div>
           </el-form-item>
-          <div class="form-row">
-          </div>
+          <el-form-item label="特殊资源" prop="resource" :rules="resule">
+            <el-radio-group v-model="loginForm.resource">
+              <el-radio label="线上品牌商赞助"></el-radio>
+              <el-radio label="线下场地免费"></el-radio>
+            </el-radio-group>
+          </el-form-item>
+          <div class="form-row"></div>
           <el-button
             size="large"
             type="primary"
@@ -62,13 +66,11 @@
           </el-button>
         </el-form>
       </div>
-      <FindPassword :visible.sync="dialogFormVisible" />
     </main>
   </div>
 </template>
 
 <script>
-
 export default {
   data() {
     const validatePass = (rule, value, callback) => {
@@ -105,19 +107,22 @@ export default {
         pass: '',
         account: '',
         verifCode: '',
+        resource: '',
       },
       dialogFormVisible: false,
-      ruless:[{ validator: validateAccount, trigger: ['blur', 'change'] }],
+      ruless: [{ validator: validateAccount, trigger: ['blur', 'change'] }],
       rules: {
         pass: [{ validator: validatePass, trigger: ['blur', 'change'] }],
         verifCode: [
           { validator: validatorVerCode, trigger: ['blur', 'change'] },
         ],
       },
+      resule: [
+        { required: false, message: '请选择活动资源', trigger: 'change' },
+      ],
     }
   },
-  created() {
-  },
+  created() {},
   methods: {
     // 判断是否已缓存账号密码
     checkRemPass() {
@@ -145,7 +150,7 @@ export default {
     submitForm() {
       this.$refs.form.validate(valid => {
         if (valid) {
-          console.log(valid,'this.valid')
+          console.log(valid, 'this.valid')
         }
       })
     },
