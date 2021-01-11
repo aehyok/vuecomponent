@@ -8,13 +8,26 @@
         </el-radio>
       </el-radio-group>
     </el-form-item>
+    <div v-for="(control, index) in column.controls" :key="index">
+      <div v-if="value === control.value">
+        <FormView :columnList="control.showCondition" :formData="formData" />
+      </div>
+    </div>
   </div>
 </template>
 <script>
 import { getContentTypeList } from '@/mock/api'
 export default {
+  // 组件嵌套如何引用的问题
+  components: {
+    FormView: () => import('@/components/input/formView'),
+  },
   props: {
     column: {
+      type: [Object],
+      default: () => {},
+    },
+    formData: {
       type: [Object],
       default: () => {},
     },
@@ -25,6 +38,7 @@ export default {
   },
   data() {
     return {
+      list: [],
       rules: [
         {
           // 加上双？？，防止出现选中后提示请选择"this.column.title"

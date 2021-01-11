@@ -102,15 +102,32 @@ export default {
           name: 'type',
           type: 'radio',
           title: '栏目类型',
-          control: [
+          controls: [
             {
               value: 1,
-              showCondition: {
-                name: 'show',
-                type: 'radio',
-                title: '测试类型',
-                required: true,
-              },
+              showCondition: [
+                {
+                  name: 'show',
+                  type: 'radio',
+                  title: '测试类型',
+                  required: true,
+                },
+                {
+                  name: 'image1',
+                  type: 'image',
+                  title: '文件',
+                },
+              ],
+            },
+            {
+              value: 2,
+              showCondition: [
+                {
+                  name: 'isValids',
+                  type: 'switch',
+                  title: '是否有效',
+                },
+              ],
             },
           ],
         },
@@ -147,7 +164,7 @@ export default {
         total: null,
         count: null,
         createDate: 1606730360386,
-        type: undefined,
+        type: 1,
         requireType: undefined,
         creType: '',
         range: [],

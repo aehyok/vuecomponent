@@ -4,6 +4,7 @@
       <component
         :is="item.type + 'View'"
         :column="item"
+        :formData="formData"
         :data.sync="formData[item.name]"
       />
       <!--文本框Input-->
