@@ -15,7 +15,7 @@ export default {
     },
     data: {
       type: Boolean,
-      default: false, // 只有true和false两个值
+      default: undefined, // 只有true和false两个值
     },
   },
   created() {

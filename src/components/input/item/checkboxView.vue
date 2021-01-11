@@ -2,9 +2,10 @@
 <template>
   <div>
     <el-form-item :label="column.title" :prop="column.columnName">
-      <el-checkbox-group
-        v-model="value">
-        <el-checkbox v-for="city in cities" :label="city" :key="city">{{city}}</el-checkbox>
+      <el-checkbox-group v-model="value">
+        <el-checkbox v-for="city in cities" :label="city" :key="city">{{
+          city
+        }}</el-checkbox>
       </el-checkbox-group>
     </el-form-item>
   </div>
@@ -33,7 +34,7 @@ export default {
         return this.data
       },
       set: function(val) {
-        this.$emit('update:data',val)
+        this.$emit('update:data', val)
       },
     },
   },

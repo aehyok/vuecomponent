@@ -15,18 +15,8 @@ import { getContentTypeList } from '@/mock/api'
 export default {
   props: {
     column: {
-      required: {
-        type: Boolean,
-        default: false,
-      },
-      title: {
-        type: String,
-        default: '',
-      },
-      name: {
-        type: String,
-        default: '',
-      },
+      type: [Object],
+      default: () => {},
     },
     data: {
       type: Number,
@@ -43,7 +33,6 @@ export default {
           trigger: 'change',
         },
       ],
-      list: [],
     }
   },
   created() {

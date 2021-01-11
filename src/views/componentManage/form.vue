@@ -102,6 +102,17 @@ export default {
           name: 'type',
           type: 'radio',
           title: '栏目类型',
+          control: [
+            {
+              value: 1,
+              showCondition: {
+                name: 'show',
+                type: 'radio',
+                title: '测试类型',
+                required: true,
+              },
+            },
+          ],
         },
         {
           name: 'requireType',
