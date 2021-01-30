@@ -92,18 +92,6 @@ export default {
       console.log(response, 'response')
       console.log(this.fileList, 'this.fileList++++++++++++++++++++')
       const list = fileList
-      //   if (response.code !== 200) {
-      //     this.$message({
-      //       type: "error",
-      //       message: response.message,
-      //     });
-      //     return;
-      //   }
-      //   this.fileList.push({
-      //     url: response.data
-      //   })
-      // console.log(this.fileList, 'res-res')
-      //   this.$emit("uploadCallBack", this.fileList)
       this.$emit('uploadCallBack', list)
     },
     removeSuccess(file, fileList) {
