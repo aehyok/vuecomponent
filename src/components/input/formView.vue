@@ -1,8 +1,17 @@
 <template>
   <div>
     <div v-for="(item, index) in columnList" :key="index">
+      <!--不包含View则是npm组件库中的-->
       <component
+        v-if="!item.type.includes('View')"
         :is="item.type + 'View'"
+        :column="item"
+        :formData="formData"
+        :data.sync="formData[item.name]"
+      />
+      <component
+        v-if="item.type.includes('View')"
+        :is="item.type || registerComponent"
         :column="item"
         :formData="formData"
         :data.sync="formData[item.name]"
@@ -11,6 +20,7 @@
   </div>
 </template>
 <script>
+import Vue from 'vue'
 import textView from '@/components/input/item/textView'
 import textareaView from '@/components/input/item/textareaView'
 import numberView from '@/components/input/item/numberView'
@@ -53,6 +63,19 @@ export default {
       formListItem: [],
     }
   },
+  filters: {
+    registerComponent(componentName) {
+      console.log(componentName,'this.componentName')
+      return Vue.extend(componentName.default)
+      // return import(`@/components/input/item/${componentName}.vue`).then(
+      //   component => {
+      //     console.log(component, 'component')
+      //     return Vue.extend(component.default)
+      //   },
+      // )
+    },
+  },
+  methods: {},
 }
 </script>
 <style scoped></style>

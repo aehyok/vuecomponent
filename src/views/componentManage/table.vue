@@ -24,12 +24,12 @@ export default {
         },
         {
           id: '23',
-          title: '编号3',
+          title: '编号4',
           state: 1,
         },
         {
           id: '23',
-          title: '编号3',
+          title: '编号5',
           state: 2,
         },
         {
@@ -64,7 +64,7 @@ export default {
           prop: 'title',
           label: '标题',
           align: 'center',
-          formatter: (row, column, cellValue) => {
+          formatter: row => {
             return `<span style="white-space: nowrap;color: dodgerblue;">${row.title}</span>`
           },
         },
@@ -106,8 +106,8 @@ export default {
             icon: 'el-icon-edit',
             plain: true,
             disabled: false,
-            method: (index, row) => {
-              this.handleEdit(index, row)
+            method: (index, row, ss) => {
+              this.handleEdit(index, row, ss)
             },
           },
           {

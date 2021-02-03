@@ -53,7 +53,7 @@ module.exports = {
       ])
     }
 
-    // set svg-sprite-loader
+    // set svg-sprite-loader //
     config.module
       .rule('svg')
       .exclude.add(resolve('src/icons'))

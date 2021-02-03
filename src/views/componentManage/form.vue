@@ -158,6 +158,11 @@ export default {
           type: 'image',
           title: '头像',
         },
+        {
+          name: 'image11',
+          type: 'imageTypeView',
+          title: '头像11',
+        },
       ],
       formData: {
         name: '主菜单栏目',

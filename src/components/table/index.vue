@@ -14,7 +14,7 @@
         v-if="options.mutiSelect"
         type="selection"
         align="center"
-        style="width: 55px;"
+        style="width: 65px;"
       >
       </el-table-column>
       <!--endregion-->

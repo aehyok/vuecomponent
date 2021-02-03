@@ -10,6 +10,8 @@ import '@/styles/index.scss'
 import './routerGuard'
 import Avue from '@smallwei/avue'
 import '@smallwei/avue/lib/index.css'
+
+import plugins from './plugins'
 // 如果使用字典需要赋值axios为全局
 import axios from 'axios'
 require('./mock/mock.js')
@@ -38,6 +40,10 @@ Vue.use(ElementUI, {
 Vue.use(Avue)
 
 Vue.use(formCreate)
+
+// 注意必须在构建Vue实例之前就将需要的组件注册进去
+Vue.use(plugins);
+
 // 全局注册指令 v-permission
 Object.keys(directives).forEach(key => {
   Vue.directive(key, directives[key])
