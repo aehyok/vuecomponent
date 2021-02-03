@@ -55,6 +55,11 @@ export default {
           title: '栏目名称',
         },
         {
+          name: 'image11',
+          type: 'imageTypeView',
+          title: '头像11',
+        },
+        {
           name: 'total',
           type: 'number',
           title: '栏目数量',
@@ -157,11 +162,6 @@ export default {
           name: 'image',
           type: 'image',
           title: '头像',
-        },
-        {
-          name: 'image11',
-          type: 'imageTypeView',
-          title: '头像11',
         },
       ],
       formData: {
