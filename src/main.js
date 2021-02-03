@@ -10,14 +10,19 @@ import '@/styles/index.scss'
 import './routerGuard'
 import Avue from '@smallwei/avue'
 import '@smallwei/avue/lib/index.css'
-
+import 'jsoneditor/dist/jsoneditor.min.css'
 import plugins from './plugins'
 // 如果使用字典需要赋值axios为全局
 import axios from 'axios'
+import jsoneditor from 'jsoneditor'
+import VJsoneditor from 'v-jsoneditor'
+
+Vue.use(VJsoneditor)
 require('./mock/mock.js')
 
 window.axios = axios
 
+Vue.prototype.$jsoneditor = jsoneditor
 // 判断配置文件是否开启日志调试 是否输出日志 True 输出 False 不输出
 const logDebug = process.env.NODE_ENV !== 'production'
 console.log = (function(oriLogFunc) {
@@ -42,7 +47,7 @@ Vue.use(Avue)
 Vue.use(formCreate)
 
 // 注意必须在构建Vue实例之前就将需要的组件注册进去
-Vue.use(plugins);
+Vue.use(plugins)
 
 // 全局注册指令 v-permission
 Object.keys(directives).forEach(key => {
