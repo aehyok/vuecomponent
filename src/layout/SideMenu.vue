@@ -36,7 +36,7 @@
   </div>
 </template>
 <script>
-import { getVersion } from '@/services'
+// import { getVersion } from '@/services'
 import { mapGetters, mapState } from 'vuex'
 export default {
   data() {
@@ -63,7 +63,12 @@ export default {
   },
   methods: {
     async getVersion() {
-      const res = await getVersion()
+      const res = {
+        code: 200,
+        message: 'success',
+        data: { code: '1.3.0.001', updateDate: '2020.10.20', description: '' },
+      }
+      // await getVersion()
       this.version = res.data.code
     },
   },

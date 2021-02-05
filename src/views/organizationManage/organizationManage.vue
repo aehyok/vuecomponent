@@ -123,8 +123,8 @@
 import orginTree from '@/components/organizationTree'
 import PictureGroup from '@/components/pictureGroup'
 import OrganizationManageRegion from './OrganizationManageRegion'
-import { getOrgDetail, saveOrg } from '@/services/organization'
-
+// import { getOrgDetail, saveOrg } from '@/services/organization'
+import { saveOrg } from '@/services/organization'
 export default {
   components: {
     orginTree,
@@ -156,9 +156,26 @@ export default {
     // 获取详情
     async getOrgDetailFun(id) {
       this.isLoading = true
-      const res = await getOrgDetail({
-        id,
-      })
+      const res = {
+        code: 200,
+        message: 'success',
+        data: {
+          id: '5f4764225cbf7500136db76a',
+          name: 'root',
+          displayName: 'root',
+          parentId: null,
+          logo: '',
+          createdAt: '2020-08-27T07:43:30.181Z',
+          updatedAt: '2020-11-25T10:16:16.243Z',
+          categoryTreeId: '5f865cde4b1da20013df3b17',
+          remark: '组织树根节点',
+          url: '',
+          region: '广东省湛江市徐闻县曲界镇四河村',
+        },
+      }
+      //  await getOrgDetail({
+      //   id,
+      // })
       if (res.code === 200) {
         const data = res.data
         this.organFormData.id = data.id

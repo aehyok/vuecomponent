@@ -8,9 +8,11 @@ router.beforeEach(async (to, from, next) => {
   NProgress.start()
   const info = localStorage.getItem('loginInfo')
   const token = info ? JSON.parse(info) : ''
-
+  console.log(token, 'this.token')
   if (token) {
+    console.log('进入token')
     if (to.path === '/login') {
+      console.log('进入login')
       await store.dispatch('permission/fetchMenu')
 
       router.addRoutes(

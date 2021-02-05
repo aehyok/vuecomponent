@@ -89,7 +89,7 @@ import {
   getOrgTree,
   saveOrg,
   deleteOrg,
-  getFullOrgTree,
+  // getFullOrgTree,
 } from '@/services/organization'
 
 export default {
@@ -198,10 +198,77 @@ export default {
       return data
     },
     async getTreeData() {
-      const user = JSON.parse(localStorage.getItem('loginInfo'))
-      const res = await getFullOrgTree({
-        orgId: user.orgId,
-      })
+      // const user = JSON.parse(localStorage.getItem('loginInfo'))
+      const res = {
+        code: 200,
+        message: 'success',
+        data: {
+          id: '5f4764225cbf7500136db76a',
+          name: 'root',
+          parentId: null,
+          displayName: 'root',
+          logo: '',
+          remark: '组织树根节点',
+          region: '广东省湛江市徐闻县曲界镇四河村',
+          children: [
+            {
+              id: '5f477d31e9728000132bfc33',
+              name: '深圳',
+              parentId: '5f4764225cbf7500136db76a',
+              displayName: '深圳',
+              logo: '5f47712e5cbf7500136db7c5',
+              remark: '',
+              region: '广东省',
+              children: [
+                {
+                  id: '5f51a0aa9dc40000131d530b',
+                  name: '测试',
+                  parentId: '5f477d31e9728000132bfc33',
+                  displayName: '',
+                  logo: '',
+                  remark: '',
+                  region: '广东省广州市天河区员村',
+                  children: [],
+                },
+                {
+                  id: '5f5a0b17848c1c00123d8c1b',
+                  name: '南山区',
+                  parentId: '5f477d31e9728000132bfc33',
+                  displayName: '',
+                  logo: '5f47712e5cbf7500136db7c5',
+                  remark: '',
+                  region: '广东省湛江市徐闻县曲界镇三河村',
+                  children: [
+                    {
+                      id: '5f5a0b68848c1c00123d8c26',
+                      name: '粤海街道',
+                      parentId: '5f5a0b17848c1c00123d8c1b',
+                      displayName: '南山必胜客',
+                      logo: '5f50915d829eb8001df50acc',
+                      remark: '',
+                      region: '陕西省咸阳市杨陵区杨陵街道乔家底村',
+                      children: [],
+                    },
+                    {
+                      id: '5f8e9013550c213eb4d5e5e9',
+                      name: '杨陵区五泉镇',
+                      parentId: '5f5a0b17848c1c00123d8c1b',
+                      displayName: '杨陵区五泉镇',
+                      logo: '5f50915d829eb8001df50acc',
+                      remark: '备注',
+                      region: '陕西省咸阳市杨陵区五泉镇王上村',
+                      children: [],
+                    },
+                  ],
+                },
+              ],
+            },
+          ],
+        },
+      }
+      // await getFullOrgTree({
+      //   orgId: user.orgId,
+      // })
       if (res.code === 200) {
         console.log(this.$attrs)
         if (!this.$attrs.thisType || this.$attrs.thisType !== 'detail') {
