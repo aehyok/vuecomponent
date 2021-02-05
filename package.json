@@ -1,12 +1,13 @@
 {
-  "name": "digital-village",
-  "version": "0.1.0",
-  "private": true,
+  "name": "aehyok-form",
+  "version": "0.1.1",
+  "private": false,
   "scripts": {
     "start": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint",
+    "aehyok": "vue-cli-service build --dest lib --target lib src/index.js"
   },
   "dependencies": {
     "@form-create/element-ui": "^1.0.20",

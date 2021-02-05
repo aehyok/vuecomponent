@@ -33,6 +33,7 @@ import selectView from '@/components/input/item/selectView'
 import imageView from '@/components/input/item/imageView'
 
 export default {
+  name: 'formView',
   components: {
     textView,
     textareaView,
@@ -65,7 +66,7 @@ export default {
   },
   filters: {
     registerComponent(componentName) {
-      console.log(componentName,'this.componentName')
+      console.log(componentName, 'this.componentName')
       return Vue.extend(componentName.default)
       // return import(`@/components/input/item/${componentName}.vue`).then(
       //   component => {
