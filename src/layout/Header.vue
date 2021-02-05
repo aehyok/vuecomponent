@@ -80,7 +80,7 @@
   </div>
 </template>
 <script>
-import { modifyPassword, logout } from '@/services'
+import { modifyPassword } from '@/services'
 import { mapGetters } from 'vuex'
 export default {
   computed: {
@@ -185,17 +185,13 @@ export default {
 
     // 退出登录
     async loginOut(type) {
-      const res = await logout({
-        token: this.user.token,
-      })
-      if (res.code === 200) {
-        if (!type) {
-          this.$message.success('您已安全退出')
-        }
-        this.$store.commit('permission/setMenus', [])
-        localStorage.removeItem('loginInfo')
-        this.$router.push('/login')
-      }
+      // const res = await logout({
+      //   token: this.user.token,
+      // })
+      this.$message.success('您已安全退出')
+      this.$store.commit('permission/setMenus', [])
+      localStorage.removeItem('loginInfo')
+      this.$router.push('/login')
     },
     submitPassword() {
       this.$refs.ruleForm.validate(async valid => {

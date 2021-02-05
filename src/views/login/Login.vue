@@ -4,7 +4,6 @@
       <div class="left">
         <img src="~@/assets/systhetic.jpg" alt="" />
       </div>
-
       <div class="right">
         <h3 class="project-name">数字乡村振兴运营平台</h3>
         <el-form
@@ -60,6 +59,7 @@
               忘记密码
             </el-button>
           </div>
+          <akButton />
           <el-button
             size="large"
             type="primary"
@@ -79,6 +79,7 @@
 
 <script>
 import FindPassword from './FindePassword'
+import akButton from 'aehyok-hello'
 // import { userLogin } from '@/services/user'
 // import { getImgCode } from '@/services'
 

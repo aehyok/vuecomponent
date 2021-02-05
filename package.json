@@ -13,6 +13,7 @@
     "@mapbox/mapbox-gl-draw": "^1.2.0",
     "@smallwei/avue": "^2.7.5",
     "@turf/turf": "^5.1.6",
+    "aehyok-hello": "0.0.14",
     "avue": "0.0.6",
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
@@ -69,7 +70,6 @@
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
-
     }
   },
   "lint-staged": {
