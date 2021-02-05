@@ -61,7 +61,7 @@ export default {
   },
   data() {
     return {
-      options: { mode: 'code' },
+      options: { mode: 'code', mainMenuBar: false },
       formConfig: {
         formListItem: [
           {
