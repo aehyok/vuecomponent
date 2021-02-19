@@ -1,6 +1,6 @@
 {
   "name": "aehyok-form",
-  "version": "0.1.2",
+  "version": "0.1.12",
   "private": false,
   "main": "lib/aehyok-form.umd.min.js",
   "scripts": {
@@ -15,13 +15,13 @@
     "@mapbox/mapbox-gl-draw": "^1.2.0",
     "@smallwei/avue": "^2.7.5",
     "@turf/turf": "^5.1.6",
-    "aehyok-hello": "0.0.14",
     "avue": "0.0.6",
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
     "date-fns": "^2.15.0",
     "echarts": "^4.9.0",
     "element-ui": "^2.13.2",
+    "et-aehyok": "^0.1.3",
     "jsoneditor": "^9.1.9",
     "mapbox-gl": "^2.0.1",
     "mapbox-gl-vue": "^2.0.4",

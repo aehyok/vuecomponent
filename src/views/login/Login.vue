@@ -79,7 +79,6 @@
 
 <script>
 import FindPassword from './FindePassword'
-import akButton from 'aehyok-hello'
 // import { userLogin } from '@/services/user'
 // import { getImgCode } from '@/services'
 

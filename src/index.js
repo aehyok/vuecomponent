@@ -1,19 +1,8 @@
 // 引入相关的组件
-import formView from './components/input/formView.vue'
-const components = [
-  formView,
-  // 还可以再写别的组件
-]
-const componentList = {}
-componentList.install = function(Vue) {
-  components.map(component => {
-    Vue.component(component.name, component)
-    componentList[component.name] = component
-  })
-}
-
-// // if (typeof window !== 'undefined' && window.Vue) {
-// //   install(window.Vue)
-// // }
-export default componentList
-export { formView }
+import FormView from './components/input/formView.vue'
+import EtVerifyCode from './components/et-verify-code.vue'
+FormView.install = Vue => Vue.component(FormView.name, FormView)
+EtVerifyCode.install = Vue => Vue.component(EtVerifyCode.name, EtVerifyCode)
+// export default EtVerifyCode
+// export default FormView
+export { EtVerifyCode, FormView }

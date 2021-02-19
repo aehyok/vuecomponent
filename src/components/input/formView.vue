@@ -21,6 +21,8 @@
 </template>
 <script>
 import Vue from 'vue'
+import ElementUI from 'element-ui'
+import 'element-ui/lib/theme-chalk/index.css'
 import textView from '@/components/input/item/textView'
 import textareaView from '@/components/input/item/textareaView'
 import numberView from '@/components/input/item/numberView'
@@ -32,8 +34,11 @@ import daterangeView from '@/components/input/item/daterangeView'
 import selectView from '@/components/input/item/selectView'
 import imageView from '@/components/input/item/imageView'
 
+Vue.use(ElementUI, {
+  size: 'medium',
+})
 export default {
-  name: 'formView',
+  name: 'FormView',
   components: {
     textView,
     textareaView,
